@@ -11,8 +11,8 @@ tags:
 - 总结
 
 toc: true
-thumbnail: /images/blogimg/blogecmascript6.png
-banner: /images/blogimg/blogecmascript6.png
+thumbnail: /images/blogecmascript6.png
+banner: /images/blogecmascript6.png
 
 ---
 
