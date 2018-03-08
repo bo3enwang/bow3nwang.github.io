@@ -11,11 +11,14 @@ tags:
 - 总结
 
 toc: true
-thumbnail: http://odv6isfb1.bkt.clouddn.com/blogimg/blogecmascript6.png
-banner: http://odv6isfb1.bkt.clouddn.com/blogimg/blogecmascript6.png
+thumbnail: /images/blogimg/blogecmascript6.png
+banner: /images/blogimg/blogecmascript6.png
 
 ---
 
+ES6,ES7 真的很强，你是时候去学习这些强大的函数了
+
+<!-- more -->
 
 > ES5，ES6中新增的好函数
 
