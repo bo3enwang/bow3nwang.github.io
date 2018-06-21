@@ -1,0 +1,64 @@
+# Menus
+menu:
+  主页: .
+  汇总: archives
+  分类: categories
+  标签: tags
+  关于我: about
+
+# Customize
+customize:
+    logo:
+        enabled: true
+        width: 40
+        height: 40
+        url: images/logo.png
+    profile:
+        enabled: false # Whether to show profile bar
+        avatar: css/images/avatar.png
+        gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
+        author: Bow3n
+        author_title: Web Developer & Designer
+        location: GuiYang, China
+        follow: https://github.com/bow3n/
+    highlight: foundation
+    sidebar: right # sidebar position, options: left, right
+    thumbnail: true # enable posts thumbnail, options: true, false
+    favicon: css/images/logo.ico
+    social_links:
+        github: /
+        twitter: /
+        stack-overflow: /
+    social_link_tooltip: true # enable the social link tooltip, options: true, false
+
+# Comment
+comment:
+    disqus: bow3n # enter disqus shortname here
+    duoshuo: # enter duoshuo shortname here
+    youyan: # enter youyan uid here
+
+# Share
+share: default # options: jiathis, bdshare, addtoany, default
+
+less:
+  compress: true
+  paths:
+    - source/css/style.less
+
+# Plugins
+plugins:
+    lightgallery: true # options: true, false
+    justified-gallery: true # options: true, false
+    google_analytics: # enter the tracking ID for your Google Analytics
+    google_site_verification: # enter Google site verification code
+    baidu_analytics: # enter Baidu Analytics hash key
+
+# Miscellaneous
+miscellaneous:
+    open_graph: # see http://ogp.me
+        fb_app_id:
+        fb_admins:
+        twitter_id:
+        google_plus:
+    links:
+        Hexo: http://hexo.io

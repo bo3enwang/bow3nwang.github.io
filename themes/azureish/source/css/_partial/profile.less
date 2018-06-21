@@ -1,0 +1,41 @@
+#profile {
+  flex: 0 0 300px;
+  max-width: 300px;
+  min-width: 300px;
+  width: 300px;
+  margin: 3rem 2rem 0rem 0rem;
+  .profile-inner {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(31, 35, 46, 0.15);
+    border-radius: 3px;
+    .base-info {
+      img {
+        margin: 0 auto;
+        display: block;
+        width: 140px;
+        height: 140px;
+        border-radius: 100%;
+      }
+      #name {
+        line-height: 2rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      #title {
+        line-height: 2rem;
+        font-size: 1rem;
+        color: #565a5f;
+        font-weight: 500;
+      }
+    }
+    .social-links {
+      margin-top: 20px;
+      padding: 15px 20px;
+      & > table {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html<%= config.language ? " lang=" + config.language.substring(0, 2) : ""%>>
+<head>
+    <meta charset="utf-8">
+    <%
+        function capitalize (str) { return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase() }
+        var title = page.title;
+        if (is_archive()) {
+            title = capitalize(__('index.archive'));
+            if (is_month()) {
+                title += ': ' + page.year + '/' + page.month;
+            } else if (is_year()) {
+                title += ': ' + page.year;
+            }
+        } else if (is_category()) {
+            title = capitalize(__('index.category')) + ': ' + page.category;
+        } else if (is_tag()) {
+            title = capitalize(__('index.tag')) + ': ' + page.tag;
+        }
+    %>
+    <title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <%- open_graph({
+        image:          thumbnail(page),
+        fb_app_id:      theme.miscellaneous.open_graph.fb_app_id,
+        fb_admins:      theme.miscellaneous.open_graph.fb_admins,
+        twitter_id:     theme.miscellaneous.open_graph.twitter_id,
+        google_plus:    theme.miscellaneous.open_graph.google_plus,
+    }) %>
+    <%- meta(page) %>
+
+    <%- css('css/normalize') %>
+
+    <link href="https://lib.baomitu.com/font-awesome/5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%- url_for(theme_css('/css/style', cache)) %>">
+    <link rel="icon" href="<%- url_for(theme.customize.favicon) %>" />
+
+    <%- js('libs/jquery/jquery.min') %>
+</head>

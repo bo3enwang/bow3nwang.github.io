@@ -12,8 +12,8 @@ tags:
 - Spring boot
 
 toc: true
-thumbnail: /images/maven-logo-black-on-white.png
-banner: /images/maven-logo-black-on-white.png
+thumbnail: 
+banner: 
 
 ---
 

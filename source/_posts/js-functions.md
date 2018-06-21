@@ -4,11 +4,10 @@ title: JS 新特性中那些常用的方法。
 date: 2016-12-8 10:53:00
 
 categories:
-- Code
-- JS
+- 前端
 
 tags:
-- 总结
+- JavaScript
 
 toc: true
 thumbnail: /images/blogecmascript6.png
