@@ -78,4 +78,4 @@ theme: azureish
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:bow3nwang/bow3nwang.github.io.git
+  repo: https://github.com/bow3nwang/bow3nwang.github.io.git
