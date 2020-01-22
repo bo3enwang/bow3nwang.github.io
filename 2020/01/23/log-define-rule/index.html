@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Java 项目日志规范大纲 | Bow3n</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="日志记录总则 日志中不要记录无用信息，防止无用日志淹没重要信息 要明确不同日志的用途，对日志内容进行分类 日志信息要准确全面，努力做到仅凭日志就可以定位问题 日志格式要统一规范 日志要不断优化、完善  日志级别 0 Emergency: system is unusable 系统无法使用 1 Alert: action must be taken immediately 必须马上处理的紧急情况 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 项目日志规范大纲">
+<meta property="og:url" content="http://blog.bow3n.com/2020/01/23/log-define-rule/index.html">
+<meta property="og:site_name" content="Bow3n">
+<meta property="og:description" content="日志记录总则 日志中不要记录无用信息，防止无用日志淹没重要信息 要明确不同日志的用途，对日志内容进行分类 日志信息要准确全面，努力做到仅凭日志就可以定位问题 日志格式要统一规范 日志要不断优化、完善  日志级别 0 Emergency: system is unusable 系统无法使用 1 Alert: action must be taken immediately 必须马上处理的紧急情况 2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-22T21:00:17.000Z">
+<meta property="article:modified_time" content="2020-01-22T22:09:53.450Z">
+<meta property="article:author" content="Bowen Wang">
+<meta property="article:tag" content="规范文档">
+<meta name="twitter:card" content="summary">
+    
+
+    
+<link rel="stylesheet" href="/css/normalize.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <link href="https://lib.baomitu.com/font-awesome/5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+    <link rel="icon" href="/css/images/logo.ico" />
+
+    
+<script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <header id="header">
+    <div id="header-main" class="header-inner">
+        <a href="/" id="logo">
+            <i class="logo"></i>
+            <span class="site-title">Bow3n</span>
+        </a>
+        <nav id="main-nav">
+            
+                <a class="main-nav-link" href="/.">主页</a>
+            
+                <a class="main-nav-link" href="/archives">汇总</a>
+            
+                <a class="main-nav-link" href="/categories">分类</a>
+            
+                <a class="main-nav-link" href="/tags">标签</a>
+            
+                <a class="main-nav-link" href="/about">关于我</a>
+            
+        </nav>
+    </div>
+</header>
+
+    <div id="container">
+        
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Bow3n</h2>
+            <h3 id="title">Web Developer &amp; Designer</h3>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="/" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="stack-overflow" class=tooltip>
+                            <i class="fab fa-stack-overflow"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+        <section id="main">
+            <article id="post-log-define-rule" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Java 项目日志规范大纲
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2020/01/23/log-define-rule/">
+            <time datetime="2020-01-22T21:00:17.000Z" itemprop="datePublished">2020-01-23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tags"></i>
+        <a class="tag-link" href="/tags/%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" rel="tag">规范文档</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="日志记录总则"><a href="#日志记录总则" class="headerlink" title="日志记录总则"></a>日志记录总则</h2><ol>
+<li>日志中不要记录无用信息，防止无用日志淹没重要信息</li>
+<li>要明确不同日志的用途，对日志内容进行分类</li>
+<li>日志信息要准确全面，努力做到仅凭日志就可以定位问题</li>
+<li>日志格式要统一规范</li>
+<li>日志要不断优化、完善</li>
+</ol>
+<h2 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h2><ul>
+<li>0 Emergency: system is unusable 系统无法使用</li>
+<li>1 Alert: action must be taken immediately 必须马上处理的紧急情况</li>
+<li>2 Critical: critical conditions 严总的情况</li>
+<li>3 Error: error conditions 错误的情况</li>
+<li>4 Warning: warning conditions 警告的情况</li>
+<li>5 Notice: normal but significant condition 普通但需要被标注出来的情况</li>
+<li>6 Informational: informational messages 信息消息</li>
+<li>7 Debug: debug-level messages 开发处理级别的信息</li>
+</ul>
+<h3 id="Emergency"><a href="#Emergency" class="headerlink" title="Emergency"></a>Emergency</h3><ul>
+<li>导致系统不可用的事故，属于最严重的日志级别，因此该日志级别必须慎用</li>
+<li>通常情况下，一个进程的声明周期中应该只记录一次 Emergency 级别的日志</li>
+</ul>
+<h3 id="Alert"><a href="#Alert" class="headerlink" title="Alert"></a>Alert</h3><ul>
+<li>必须马上处理的问题，紧急程度低于 Emergency</li>
+<li>Alert 错误发生时，已经影响了用户的正常访问</li>
+<li>与 Emergency 的区别是，Alert 状态下系统依旧是可用的。例如：DB / Cache 无法连接。</li>
+</ul>
+<h3 id="Critical"><a href="#Critical" class="headerlink" title="Critical"></a>Critical</h3><ul>
+<li>紧急情况，程序组件不可用，需要立刻进行修复。例如：用户注册逻辑模块不能发送邮件。</li>
+</ul>
+<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ul>
+<li>运行时出现的错误，不必要立即进行修复</li>
+<li>错误不影响整个逻辑的运行，但需要记录并做检测。</li>
+</ul>
+<h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><ul>
+<li>可能影响系统功能，需要提醒的重要事件</li>
+<li>该日志标示系统可能出现问题，也可能没有（比如网络波动）。对于那些目前还不是错误，然而不及时处理也会变为错误的情况，也可以记为 Warning 日志。例如一个存储系统的磁盘使用量超过阀值，或者系统中某个用户的存储配额快用完等等</li>
+<li>对于 Warining 级别的日志，虽然不需要马上处理，但也需要及时查看并处理</li>
+</ul>
+<h3 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h3><ul>
+<li>不影响正常功能，但需要注意的消息</li>
+<li>执行过程中较 Infomational 级别更为重要的信息。</li>
+</ul>
+<h3 id="Infomational"><a href="#Infomational" class="headerlink" title="Infomational"></a>Infomational</h3><ul>
+<li>用于记录系统正常运行情况下的一般信息，强调应用程序的运行过程。例如：某个子模块的初始化、某个请求的成功执行等</li>
+<li>通过查看 Infomational 级别的日志，可以很快对系统中出现的 0~5 级别的错误进行定位</li>
+</ul>
+<h3 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h3><ul>
+<li>帮助开发、测试、运维人员对系统进行诊断的信息。</li>
+</ul>
+<h2 id="日志分类"><a href="#日志分类" class="headerlink" title="日志分类"></a>日志分类</h2><blockquote>
+<p>日志从功能来说，可分为诊断日志、统计日志、审计日志。</p>
+</blockquote>
+<h3 id="诊断日志"><a href="#诊断日志" class="headerlink" title="诊断日志"></a>诊断日志</h3><ul>
+<li>请求入口和出口</li>
+<li>外部服务调用和返回</li>
+<li>资源消耗操作: 打开文件等</li>
+<li>容错行为： 譬如云硬盘的副本修复操作</li>
+<li>程序异常： 譬如数据库无法连接</li>
+<li>后台操作：清理程序</li>
+<li>启动、关闭、配置加载</li>
+<li>抛出异常时，不记录日志</li>
+</ul>
+<h3 id="统计日志"><a href="#统计日志" class="headerlink" title="统计日志"></a>统计日志</h3><ul>
+<li>用户访问统计</li>
+<li>计费日志（如记录用户使用的网络资源或磁盘占用，格式较为严格，便于统计）</li>
+</ul>
+<h3 id="审计日志"><a href="#审计日志" class="headerlink" title="审计日志"></a>审计日志</h3><ul>
+<li>管理操作</li>
+</ul>
+<h2 id="日志格式规范"><a href="#日志格式规范" class="headerlink" title="日志格式规范"></a>日志格式规范</h2><ul>
+<li>统一字段命名：对于不同请求中的同一含义的字段，只能有一个名字</li>
+<li>统一字段风格：例如字段一律使用 xxx_yyy 的下划线命名风格</li>
+<li>统一日志层级风格</li>
+<li>统一字段顺序：例如统一使用 请求 ID/服务名/请求参数/响应数据/响应时间 作为日志字段顺序</li>
+<li>每个请求需要加入请求 ID request_id</li>
+</ul>
+<h2 id="日志中记录什么"><a href="#日志中记录什么" class="headerlink" title="日志中记录什么"></a>日志中记录什么</h2><h3 id="推荐记录的日志内容"><a href="#推荐记录的日志内容" class="headerlink" title="推荐记录的日志内容"></a>推荐记录的日志内容</h3><ul>
+<li>在系统启动或初始化时记录重要的系统初始化参数</li>
+<li>记录系统运行过程中的所有的错误</li>
+<li>记录系统运行过程中的所有的警告</li>
+<li>在持久化数据修改时记录修改前和修改后的值</li>
+<li>记录系统各主要模块之间的请求和响应</li>
+<li>重要的状态变化</li>
+<li>系统中一些长期执行的任务的执行进度</li>
+</ul>
+<h3 id="不推荐记录的日志内容"><a href="#不推荐记录的日志内容" class="headerlink" title="不推荐记录的日志内容"></a>不推荐记录的日志内容</h3><ul>
+<li>函数入口信息：除非该函数入口表示了一个重要事件的开始，或者将该信息记入 DEBUG 级别日志</li>
+<li>文件内容或者一大段消息的内容：如果实在需要记录，则可以截取其中一些重要的信息来记入日志</li>
+<li>“良性”错误：有时候虽然出现了错误，然而错误处理的流程可以正确解决这种情况，例如插入数据库时有重复的记录，尽管是个错误，然而错误处理流程可以对这种情况进行处理</li>
+</ul>
+<h2 id="个人日志实践"><a href="#个人日志实践" class="headerlink" title="个人日志实践"></a>个人日志实践</h2><h3 id="SLF4J"><a href="#SLF4J" class="headerlink" title="SLF4J"></a>SLF4J</h3><p>Slf4j 英文全称为 “ Simple Logging Facade for Java ”，为 Java 提供的简单日志门面。Facade 门面，更底层一点说就是接口。它允许用户以自己的喜好，在工程中通过 Slf4j 接入不同的日志系统。</p>
+<h3 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h3><p>日志文件放置于固定的目录中，按照一定的模板进行命名，推荐的日志文件名称：</p>
+<p>当前正在写入的日志文件名：&lt;应用名&gt;[-&lt;功能名&gt;].log</p>
+<p><code>如：example-server-book-service-access.log</code></p>
+<p>已经滚入历史的日志文件名：&lt;应用名&gt;[-&lt;功能名&gt;].yyyy-MM-dd-hh.[滚动号].log</p>
+<h3 id="日志变量定义"><a href="#日志变量定义" class="headerlink" title="日志变量定义"></a>日志变量定义</h3><blockquote>
+<p>推荐使用 lombok（代码生成器） 注解 @lombok.extern.slf4j.Slf4j 来生成日志变量实例。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        log.info(<span class="string">"this is log test"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h3><p>日志记录采用分级记录，级别与日志文件名相对应，不同级别的日志信息记录到不同的日志文件中。如有特殊格式日志，如 access log，单独使用一个文件，请注意避免重复打印（可使用 additivity=”false” 避免 ）。</p>
+<h3 id="参数占位格式"><a href="#参数占位格式" class="headerlink" title="参数占位格式"></a>参数占位格式</h3><p>使用参数化形式 {} 占位，[] 进行参数隔离，这样的好处是可读性更高，而且只有真正准备打印的时候才会处理参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正确示例，必须使用参数化信息的方式</span></span><br><span class="line">log.debug(<span class="string">"order is paying with userId:[&#123;&#125;] and orderId : [&#123;&#125;]"</span>,userId, orderId);</span><br><span class="line"><span class="comment">// 错误示例，不要进行字符串拼接,那样会产生很多 String 对象，占用空间，影响性能。及日志级别高于此级别也会进行字符串拼接逻辑。</span></span><br><span class="line">log.debug(<span class="string">"order is paying with userId: "</span> + userId + <span class="string">" and orderId: "</span> + orderId);</span><br></pre></td></tr></table></figure>
+
+<h3 id="日志的基本格式"><a href="#日志的基本格式" class="headerlink" title="日志的基本格式"></a>日志的基本格式</h3><h4 id="日志时间"><a href="#日志时间" class="headerlink" title="日志时间"></a>日志时间</h4><p>作为日志产生的日期和时间，这个数据非常重要，一般精确到毫秒。</p>
+<p><code>yyyy-MM-dd HH:mm:ss.SSS</code></p>
+<h3 id="日志格式"><a href="#日志格式" class="headerlink" title="日志格式"></a>日志格式</h3><p><code>2019-12-01 00:00:00.000|pid|log-level|[svc-name,trace-id,span-id,user-id,biz-id]|thread-name|package-name.class-name : log message</code></p>
+<ul>
+<li>时间</li>
+<li>pid，pid</li>
+<li>log-level，日志级别</li>
+<li>svc-name，应用名称</li>
+<li>trace-id，调用链标识</li>
+<li>span-id，调用层级标识</li>
+<li>user-id，用户标识</li>
+<li>biz-id，业务标识</li>
+<li>thread-name，线程名称</li>
+<li>package-name.class-name，日志记录器名称</li>
+<li>log message，日志消息体</li>
+</ul>
+
+        
+        </div>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/01/06/hello-2020/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">2020 说到做到</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+
+        </section>
+    </div>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Bowen Wang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        </div>
+    </div>
+</footer>
+    
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.bow3n.com/2020/01/23/log-define-rule/';
+        
+        this.page.identifier = 'log-define-rule';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'bow3n' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

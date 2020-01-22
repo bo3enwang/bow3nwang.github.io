@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>JS 新特性中那些常用的方法。 | Bow3n</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="ES6,ES7 真的很强，你是时候去学习这些强大的函数了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS 新特性中那些常用的方法。">
+<meta property="og:url" content="http://blog.bow3n.com/2016/12/08/js-functions/index.html">
+<meta property="og:site_name" content="Bow3n">
+<meta property="og:description" content="ES6,ES7 真的很强，你是时候去学习这些强大的函数了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-08T02:53:00.000Z">
+<meta property="article:modified_time" content="2020-01-06T14:19:15.536Z">
+<meta property="article:author" content="Bowen Wang">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+    
+
+    
+<link rel="stylesheet" href="/css/normalize.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <link href="https://lib.baomitu.com/font-awesome/5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+    <link rel="icon" href="/css/images/logo.ico" />
+
+    
+<script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <header id="header">
+    <div id="header-main" class="header-inner">
+        <a href="/" id="logo">
+            <i class="logo"></i>
+            <span class="site-title">Bow3n</span>
+        </a>
+        <nav id="main-nav">
+            
+                <a class="main-nav-link" href="/.">主页</a>
+            
+                <a class="main-nav-link" href="/archives">汇总</a>
+            
+                <a class="main-nav-link" href="/categories">分类</a>
+            
+                <a class="main-nav-link" href="/tags">标签</a>
+            
+                <a class="main-nav-link" href="/about">关于我</a>
+            
+        </nav>
+    </div>
+</header>
+
+    <div id="container">
+        
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Bow3n</h2>
+            <h3 id="title">Web Developer &amp; Designer</h3>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="/" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="stack-overflow" class=tooltip>
+                            <i class="fab fa-stack-overflow"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+        <section id="main">
+            <article id="post-js-functions" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            JS 新特性中那些常用的方法。
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2016/12/08/js-functions/">
+            <time datetime="2016-12-08T02:53:00.000Z" itemprop="datePublished">2016-12-08</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tags"></i>
+        <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array"><span class="toc-number">1.</span> <span class="toc-text">Array</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#forEach"><span class="toc-number">1.1.</span> <span class="toc-text">forEach</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map"><span class="toc-number">1.2.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-number">1.3.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#some-every"><span class="toc-number">1.4.</span> <span class="toc-text">some,every</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexOf-lastIndexOf"><span class="toc-number">1.5.</span> <span class="toc-text">indexOf,lastIndexOf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce，reduceRight"><span class="toc-number">1.6.</span> <span class="toc-text">reduce，reduceRight</span></a></li></ol></li></ol>
+                </div>
+            
+            <p>ES6,ES7 真的很强，你是时候去学习这些强大的函数了</p>
+<a id="more"></a>
+
+<blockquote>
+<p>ES5，ES6中新增的好函数</p>
+</blockquote>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p><code>forEach</code> 是Array新方法中最基本的一个，就是遍历，循环。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span> ,<span class="number">3</span>, <span class="number">4</span>].forEach(<span class="built_in">console</span>.log);</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line"><span class="comment">// 1, 0, [1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">// 2, 1, [1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">// 3, 2, [1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">// 4, 3, [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+<p>显而易见，forEach回调支持三个参数 1.遍历的内容。2.数组的索引。 3.这个数组本身</p>
+<p><code>forEach</code>除了接受一个回调函数，还可以接受一个可选上下文函数参数（改变回调里的this指向）</p>
+<p><code>array.forEach(callback,[ thisObject]);</code></p>
+<p><em>使用场景</em></p>
+<ol>
+<li><p>数组求和</p>
+</li>
+<li><p>数组调用某些方法</p>
+</li>
+</ol>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p><code>map</code> 映射，使用方法和forEach类似 参数也类似，但是map的callback需要一个返回值，根据返回值会返回一个新的数组</p>
+<p><code>array.map(callback,[ thisObject]);</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arrayOfSquares = data.map(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> item * item;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(arrayOfSquares); <span class="comment">// 1, 4, 9, 16</span></span><br></pre></td></tr></table></figure>
+<p><em>使用场景</em></p>
+<ol>
+<li>利用map方法方便获得对象数组中的特定属性值。</li>
+</ol>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><code>filter</code>中文过滤，与map基本相似，callback需要返回一个布尔型值，且只需弱 <code>==true/false</code> 。</p>
+<p><code>array.filter(callback,[ thisObject]);</code></p>
+<p><em>使用场景</em></p>
+<ol>
+<li>筛选数据时。</li>
+</ol>
+<h3 id="some-every"><a href="#some-every" class="headerlink" title="some,every"></a>some,every</h3><p><code>some</code> 意指“某些”，指是否“某些项”合乎条件。与之对应的则是<code>every</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">array.some(callback,[ thisObject]);<span class="comment">//只需要数组中有一个值能让callback返回true则some返回true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">array.every(callback,[ thisObject]);<span class="comment">//数组中有所有值能让callback返回true才能使every返回true</span></span><br></pre></td></tr></table></figure>
+
+<p><em>使用场景</em></p>
+<ol>
+<li>对一些数组进行验证</li>
+</ol>
+<h3 id="indexOf-lastIndexOf"><a href="#indexOf-lastIndexOf" class="headerlink" title="indexOf,lastIndexOf"></a>indexOf,lastIndexOf</h3><p><code>indexOf</code>方法在字符串中自古就有，<code>string.indexOf(searchString, position)</code>。数组这里的indexOf方法与之类似。</p>
+<p><code>lastIndexOf</code> 与indexOf也类似。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">array.indexOf(searchElement[, fromIndex])</span><br><span class="line"><span class="comment">//返回整数索引值，如果没有匹配（严格匹配），返回-1. fromIndex可选，表示从这个位置开始搜索，若缺省或格式不合要求，使用默认值0</span></span><br><span class="line"><span class="keyword">var</span> data = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(data.indexOf(<span class="number">5</span>, <span class="string">"x"</span>)); <span class="comment">// 1 ("x"被忽略)</span></span><br><span class="line"><span class="built_in">console</span>.log(data.indexOf(<span class="number">5</span>, <span class="string">"3"</span>)); <span class="comment">// 4 (从3号位开始搜索)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(data.indexOf(<span class="number">4</span>)); <span class="comment">// -1 (未找到)</span></span><br><span class="line"><span class="built_in">console</span>.log(data.indexOf(<span class="string">"5"</span>)); <span class="comment">// -1 (未找到，因为5 !== "5")</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">array.lastIndexOf(searchElement[, fromIndex])</span><br><span class="line"><span class="comment">//lastIndexOf是从字符串的末尾开始查找，而不是从开头。还有一个不同就是fromIndex的默认值是array.length - 1而不是0</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="reduce，reduceRight"><a href="#reduce，reduceRight" class="headerlink" title="reduce，reduceRight"></a>reduce，reduceRight</h3><p>这个函数的意义接近于“迭代”、“递归(recursion)”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">array.reduce(callback[, initialValue])</span><br><span class="line"></span><br><span class="line"><span class="comment">//callback函数接受4个参数：之前值、当前值、索引值以及数组本身。</span></span><br><span class="line"><span class="comment">//initialValue参数可选，表示初始值。</span></span><br><span class="line"><span class="comment">//若指定，则当作最初使用的previous值；</span></span><br><span class="line"><span class="comment">//如果缺省，则使用数组的第一个元素作为previous初始值，同时current往后排一位，相比有initialValue值少一次迭代。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].reduce(<span class="function"><span class="keyword">function</span> (<span class="params">previous, current, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> previous + current;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">array.reduceRight(callback[, initialValue])</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用方式和reduce方法相同，区别在于此方法从数组尾部开始。</span></span><br></pre></td></tr></table></figure>
+
+<p><em>使用场景</em></p>
+<ol>
+<li><p>数组求和</p>
+</li>
+<li><p>二维数组扁平化</p>
+</li>
+</ol>
+
+        
+        </div>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/12/08/maven-filter-problem/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Maven 构建 filter 没有替换属性值
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+
+        </section>
+    </div>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Bowen Wang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        </div>
+    </div>
+</footer>
+    
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.bow3n.com/2016/12/08/js-functions/';
+        
+        this.page.identifier = 'js-functions';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'bow3n' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

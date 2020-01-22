@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Spring 的基本概念 | Bow3n</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="2003年2月Spring框架正式称为一道开源项目，Spring致力于J2EE应用的各种解决方案，而不仅仅专注于某一层解决方案。可以说Spring是企业应用开发的“一站式”选择， Spring贯穿于表现层、业务层、持久层，然而Spring并不想取代那些已经有的框架，而是以高度的开放性，与这些已有的框架进行整合。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring 的基本概念">
+<meta property="og:url" content="http://blog.bow3n.com/2018/01/09/spring-basic/index.html">
+<meta property="og:site_name" content="Bow3n">
+<meta property="og:description" content="2003年2月Spring框架正式称为一道开源项目，Spring致力于J2EE应用的各种解决方案，而不仅仅专注于某一层解决方案。可以说Spring是企业应用开发的“一站式”选择， Spring贯穿于表现层、业务层、持久层，然而Spring并不想取代那些已经有的框架，而是以高度的开放性，与这些已有的框架进行整合。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-01-09T14:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-06T13:56:02.412Z">
+<meta property="article:author" content="Bowen Wang">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+    
+
+    
+<link rel="stylesheet" href="/css/normalize.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <link href="https://lib.baomitu.com/font-awesome/5.0.8/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+    <link rel="icon" href="/css/images/logo.ico" />
+
+    
+<script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <header id="header">
+    <div id="header-main" class="header-inner">
+        <a href="/" id="logo">
+            <i class="logo"></i>
+            <span class="site-title">Bow3n</span>
+        </a>
+        <nav id="main-nav">
+            
+                <a class="main-nav-link" href="/.">主页</a>
+            
+                <a class="main-nav-link" href="/archives">汇总</a>
+            
+                <a class="main-nav-link" href="/categories">分类</a>
+            
+                <a class="main-nav-link" href="/tags">标签</a>
+            
+                <a class="main-nav-link" href="/about">关于我</a>
+            
+        </nav>
+    </div>
+</header>
+
+    <div id="container">
+        
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Bow3n</h2>
+            <h3 id="title">Web Developer &amp; Designer</h3>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="/" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="stack-overflow" class=tooltip>
+                            <i class="fab fa-stack-overflow"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+        <section id="main">
+            <article id="post-spring-basic" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Spring 的基本概念
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/01/09/spring-basic/">
+            <time datetime="2018-01-09T14:00:00.000Z" itemprop="datePublished">2018-01-09</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Spring/">Spring</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tags"></i>
+        <a class="tag-link" href="/tags/Spring/" rel="tag">Spring</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>2003年2月Spring框架正式称为一道开源项目，Spring致力于J2EE应用的各种解决方案，而不仅仅专注于某一层解决方案。可以说Spring是企业应用开发的“一站式”选择， Spring贯穿于表现层、业务层、持久层，然而Spring并不想取代那些已经有的框架，而是以高度的开放性，与这些已有的框架进行整合。</p>
+<a id="more"></a>
+
+<p>Spring是一个全面的解决方案，它坚持一个原则：不从新造轮子。已经有较好解决方案的领域，Spring绝不重复性实现，比如：对象持久化和OR映射，Spring只对现有的JDBC，Hibernate等技术提供支持，使之更容易使用，而不做重复的实现。Spring框架有很多特性，这些特性由7个定义良好的模块构成。</p>
+<ul>
+<li>Spring Core：即，Spring核心，它是框架最基础的部分，提供IOC和依赖注入特性</li>
+<li>Spring Context：即，Spring上下文容器，它是BeanFactory功能加强的一个子接口</li>
+<li>Spring Web：它提供Web应用开发的支持</li>
+<li>Spring MVC：它针对Web应用中MVC思想的实现</li>
+<li>Spring DAO：提供对JDBC抽象层，简化了JDBC编码，同时，编码更具有健壮性。</li>
+<li>Spring ORM：它支持用于流行的ORM框架的整合，比如：Spring + Hibernate、Spring + iBatis、Spring + JDO的整合等等。</li>
+<li>Spring AOP：AOP即，面向切面编程，它提供了与AOP联盟兼容的编程实现</li>
+</ul>
+<p>本质上 Spring 是对 Java EE 的补足，Spring 并没有完全实现的规范。仅仅小心的选择了一些独立的规范。以下是 Spring 选择的规范，如果需要更深入的理解 Spring 的设计理念，你可以从中找到答案。</p>
+<ul>
+<li>Servlet API (<a href="https://jcp.org/en/jsr/detail?id=340" target="_blank" rel="noopener">JSR 340</a>)</li>
+<li>WebSocket API (<a href="https://www.jcp.org/en/jsr/detail?id=356" target="_blank" rel="noopener">JSR 356</a>)</li>
+<li>Concurrency Utilities (<a href="https://www.jcp.org/en/jsr/detail?id=236" target="_blank" rel="noopener">JSR 236</a>)</li>
+<li>JSON Binding API (<a href="https://jcp.org/en/jsr/detail?id=367" target="_blank" rel="noopener">JSR 367</a>)</li>
+<li>Bean Validation (<a href="https://jcp.org/en/jsr/detail?id=303" target="_blank" rel="noopener">JSR 303</a>)</li>
+<li>JPA (<a href="https://jcp.org/en/jsr/detail?id=338" target="_blank" rel="noopener">JSR 338</a>)</li>
+<li>JMS (<a href="https://jcp.org/en/jsr/detail?id=914" target="_blank" rel="noopener">JSR 914</a>)</li>
+<li>Dependency Injection (<a href="https://www.jcp.org/en/jsr/detail?id=330" target="_blank" rel="noopener">JSR 330</a>)</li>
+<li>Common Annotations (<a href="https://jcp.org/en/jsr/detail?id=250" target="_blank" rel="noopener">JSR 250</a>) </li>
+</ul>
+
+        
+        </div>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/01/14/vscode-plugins/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    一个 React 开发者需要用到的 Vscode 插件
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/03/08/linux-opt/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">如何更换 Ubuntu Linux 内核。</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+
+        </section>
+    </div>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Bowen Wang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        </div>
+    </div>
+</footer>
+    
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.bow3n.com/2018/01/09/spring-basic/';
+        
+        this.page.identifier = 'spring-basic';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'bow3n' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
